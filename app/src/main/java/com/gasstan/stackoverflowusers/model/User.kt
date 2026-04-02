@@ -1,6 +1,10 @@
 package com.gasstan.stackoverflowusers.model
 
 import androidx.compose.ui.graphics.Color
+import com.gasstan.stackoverflowusers.ui.theme.BadgeNeutral
+import com.gasstan.stackoverflowusers.ui.theme.BadgeRegistered
+import com.gasstan.stackoverflowusers.ui.theme.BadgeTeamAdmin
+import com.gasstan.stackoverflowusers.ui.theme.OrangePrimary
 
 data class User(
   val badgeCounts: BadgeCounts,
@@ -22,10 +26,10 @@ data class BadgeCounts(
 )
 
 enum class UserType(val badgeColor: Color) {
-  Unregistered(badgeColor = Color(0xFF72787E)),
-  Registered(badgeColor = Color(0xFF61F176)),
-  Moderator(badgeColor = Color(0xFFFF8A00)),
-  TeamAdmin(badgeColor = Color(0xFFFF6600)),
-  DoesNotExist(badgeColor = Color(0xFF72787E)),
-  Unknown(badgeColor = Color(0xFF72787E))
+  Unregistered(badgeColor = BadgeNeutral),
+  Registered(badgeColor = BadgeRegistered),
+  Moderator(badgeColor = OrangePrimary),
+  TeamAdmin(badgeColor = BadgeTeamAdmin),
+  DoesNotExist(badgeColor = BadgeNeutral),
+  Unknown(badgeColor = BadgeNeutral),
 }

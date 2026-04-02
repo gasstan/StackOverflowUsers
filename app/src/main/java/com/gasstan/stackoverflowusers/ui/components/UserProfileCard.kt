@@ -38,6 +38,10 @@ import com.gasstan.stackoverflowusers.icons.LocationOn
 import com.gasstan.stackoverflowusers.model.BadgeCounts
 import com.gasstan.stackoverflowusers.model.User
 import com.gasstan.stackoverflowusers.model.UserType
+import com.gasstan.stackoverflowusers.ui.theme.BackgroundCard
+import com.gasstan.stackoverflowusers.ui.theme.BackgroundFollowing
+import com.gasstan.stackoverflowusers.ui.theme.Bronze
+import com.gasstan.stackoverflowusers.ui.theme.OrangePrimary
 
 @Composable
 fun UserProfileCard(
@@ -48,7 +52,7 @@ fun UserProfileCard(
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .background(Color(0xFF121212))
+            .background(BackgroundCard)
             .padding(16.dp),
     ) {
         Row(
@@ -88,7 +92,7 @@ fun UserProfileCard(
                     user.badgeCounts.let {
                         Badge(color = Color.Yellow, value = it.gold)
                         Badge(color = Color.LightGray, value = it.silver)
-                        Badge(color = Color(0xFFCD7F32), value = it.bronze)
+                        Badge(color = Bronze, value = it.bronze)
                     }
                 }
             }
@@ -148,7 +152,7 @@ private fun ReputationBlock(value: Int, label: String = "REPUTATION") {
     Column(horizontalAlignment = Alignment.End) {
         Text(
             text = formatReputation(value),
-            color = Color(0xFFFF8A00),
+            color = OrangePrimary,
             fontSize = 20.sp,
             fontWeight = FontWeight.Bold,
         )
@@ -159,7 +163,7 @@ private fun ReputationBlock(value: Int, label: String = "REPUTATION") {
 @Composable
 fun UserInfoSection(location: String, website: String) {
     Column {
-        HorizontalDivider(Modifier, thickness = 1.dp, color = Color(0xFFFF8A00))
+        HorizontalDivider(Modifier, thickness = 1.dp, color = OrangePrimary)
         Spacer(modifier = Modifier.height(12.dp))
         InfoRow(icon = Icons.LocationOn, text = location)
         Spacer(modifier = Modifier.height(10.dp))
@@ -173,7 +177,7 @@ fun InfoRow(icon: ImageVector, text: String, modifier: Modifier = Modifier) {
         Icon(
             imageVector = icon,
             contentDescription = null,
-            tint = Color(0xFFFF8A00),
+            tint = OrangePrimary,
             modifier = Modifier.size(18.dp),
         )
         Spacer(modifier = Modifier.width(12.dp))
@@ -184,19 +188,18 @@ fun InfoRow(icon: ImageVector, text: String, modifier: Modifier = Modifier) {
 @Composable
 fun FollowButton(
     modifier: Modifier = Modifier,
-    isFollowing : Boolean,
-    onClick: () -> Unit
+    isFollowing: Boolean,
+    onClick: () -> Unit,
 ) {
-   val color = if (isFollowing) Color(0xFFFF8A00) else Color.Gray
+    val color = if (isFollowing) OrangePrimary else Color.Gray
     OutlinedButton(
         onClick = onClick,
-        modifier = modifier
-            .fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         border = BorderStroke(1.dp, color),
         shape = RectangleShape,
         colors = ButtonDefaults.outlinedButtonColors(
-            containerColor = if (isFollowing) Color(0xFF222222) else Color(0xFF121212),
-            contentColor = Color.White
+            containerColor = if (isFollowing) BackgroundFollowing else BackgroundCard,
+            contentColor = Color.White,
         ),
     ) {
         Text(
@@ -205,7 +208,7 @@ fun FollowButton(
                 fontWeight = FontWeight.Bold,
                 fontSize = 14.sp,
                 letterSpacing = 2.sp,
-                color =color
+                color = color,
             )
         )
     }

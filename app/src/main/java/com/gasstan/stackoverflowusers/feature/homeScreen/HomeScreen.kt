@@ -24,6 +24,8 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.gasstan.stackoverflowusers.model.User
 import com.gasstan.stackoverflowusers.ui.components.UserProfileCard
+import com.gasstan.stackoverflowusers.ui.theme.BackgroundScreen
+import com.gasstan.stackoverflowusers.ui.theme.OrangePrimary
 
 @Composable
 fun HomeScreen(homeScreenViewModel: HomeScreenViewModel) {
@@ -41,7 +43,7 @@ private fun ContentComposable(users: List<User>, onToggleFollow: (Int) -> Unit) 
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF1A1A1A))
+            .background(BackgroundScreen)
             .padding(8.dp)
     ) {
         items(users, key = { it.userId }) { user ->
@@ -59,10 +61,10 @@ private fun LoadingComposable() {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF1A1A1A)),
+            .background(BackgroundScreen),
         contentAlignment = Alignment.Center,
     ) {
-        CircularProgressIndicator(color = Color(0xFFFF8A00))
+        CircularProgressIndicator(color = OrangePrimary)
     }
 }
 
@@ -71,7 +73,7 @@ private fun ErrorComposable(message: String, onRetry: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF1A1A1A)),
+            .background(BackgroundScreen),
         contentAlignment = Alignment.Center,
     ) {
         Column(
@@ -87,7 +89,7 @@ private fun ErrorComposable(message: String, onRetry: () -> Unit) {
             Spacer(Modifier.height(16.dp))
             Button(
                 onClick = onRetry,
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFF8A00)),
+                colors = ButtonDefaults.buttonColors(containerColor = OrangePrimary),
             ) {
                 Text("Retry", color = Color.Black)
             }
