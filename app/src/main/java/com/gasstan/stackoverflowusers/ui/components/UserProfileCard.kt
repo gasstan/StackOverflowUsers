@@ -38,6 +38,7 @@ import com.gasstan.stackoverflowusers.icons.LocationOn
 import com.gasstan.stackoverflowusers.model.BadgeCounts
 import com.gasstan.stackoverflowusers.model.User
 import com.gasstan.stackoverflowusers.model.UserType
+import com.gasstan.stackoverflowusers.ui.ktx.badgeColor
 import com.gasstan.stackoverflowusers.ui.theme.BackgroundCard
 import com.gasstan.stackoverflowusers.ui.theme.BackgroundFollowing
 import com.gasstan.stackoverflowusers.ui.theme.Bronze

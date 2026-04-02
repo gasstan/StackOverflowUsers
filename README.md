@@ -34,6 +34,5 @@ An Android application that fetches a list of StackOverflow users and displays i
 
 ## Next steps
 
-- **Fix** — `UserType` currently holds a Compose `Color` in the domain model; the color mapping should move to the UI layer
 - **Error classification** — distinguish between no-internet and server errors to show a more specific message to the user
 - **Compose theming** — colors are currently defined as plain constants in `Color.kt` and referenced directly; they should be wired into a proper `MaterialTheme`
